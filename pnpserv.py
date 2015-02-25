@@ -23,6 +23,7 @@ import sys
 import re
 
 from optparse import OptionParser
+from string import Template
 
 class snom_phone(object):
     """Basic representation of a snom phone."""
@@ -170,11 +171,14 @@ while True:
 
 	# Now send a NOTIFY with the configuration URL
 	
-        if not options.prov_uri:
-            prov_uri = "http://provisioning.snom.com/%s/%s.php?mac={mac}" % (phone.model, phone.model)
-        else:
-            prov_uri = options.prov_uri
-            prov_uri = "%s/%s.htm" % (prov_uri,phone.model)
+	if options.prov_uri:
+	    uri_template_string = options.prov_uri
+	else:
+	    uri_template_string = "http://provisioning.snom.com/${model}/${model}.php?mac=${mac_addr}"
+
+        uri_template = Template(uri_template_string)
+	tmpl_data = {"model":phone.model, "mac_addr":phone.mac_addr, "ip_addr":phone.ip_addr, "fw_version":phone.fw_version}
+        prov_uri = uri_template.safe_substitute(tmpl_data)
 
 	notify = "NOTIFY sip:%s:%s SIP/2.0\r\n" % (phone.ip_addr, phone.sip_port)
 	notify += via_header + "\r\n"
