@@ -4,6 +4,7 @@
 #
 #
 # Author: Filip Polsakiewicz <filip.polsakiewicz@snom.de>
+# Changes by: Hubert Denkmair <xor@6times9.de>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
