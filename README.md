@@ -8,12 +8,12 @@ unfortunately, the original pnpserv.py does not allow for freely configurable UR
 
 the "-u" command line parameter is changed, allowing the following template variables:
 
-template string | description
---------------- | ----------------
-${model}        | phone model, e.g. snom725
-${mac_addr}     | phone mac address, e.g. 00041378FFFF
-${ip_addr}      | phone ip address, e.g. 192.168.0.10
-${fw_version}   | firmware version, e.g. 8.7.5.8.11
+template string | description       | example
+--------------- | ----------------- | -------------------
+${model}        | phone model       | snom725
+${mac_addr}     | phone mac address | 00041378FFFF
+${ip_addr}      | phone ip address  | 192.168.0.10
+${fw_version}   | firmware version  | 8.7.5.8.11
 
 call the script e.g. with:
 ```
