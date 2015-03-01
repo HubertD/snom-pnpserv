@@ -1,0 +1,3 @@
+# /etc/default/snom-pnpserv
+# configuration options for snom-pnpserv systemd service
+PNPSERV_OPTS=--url=http://asterisk/snom/provision/${model}/${mac_addr}/config.xml

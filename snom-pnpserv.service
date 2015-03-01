@@ -1,0 +1,12 @@
+[Unit]
+Description=snom autoprovision url server
+After=network.target
+
+[Service]
+User=nobody
+Group=nogroup
+EnvironmentFile=/etc/default/snom-pnpserv
+ExecStart=/usr/bin/python2 /srv/snom-pnpserv/pnpserv.py ${PNPSERV_OPTS}
+
+[Install]
+WantedBy=multi-user.target
