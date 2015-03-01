@@ -19,3 +19,11 @@ call the script e.g. with:
 ```
 python pnpserv.py -u 'http://provisioning-server:8000/snom/provision/${model}/${mac_addr}/config.xml'
 ```
+
+## installing as a systemd service
+```
+git clone https://github.com/HubertD/snom-pnpserv.git /srv/snom-pnpserv
+cp /srv/snom-pnpserv/snom-pnpserv.default /etc/default/snom-pnpserv
+systemctl enable /srv/snom-pnpserv/snom-pnpserv.service
+systemctl start snom-pnpserv.service
+```
